@@ -34,13 +34,15 @@ public class WordAdapter extends ArrayAdapter<Word>
     {
         View listItem = convertView;
 
-        if(listItem == null) {
+        if(listItem == null)
+        {
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
         }
 
         Word currentWord = wordList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.image);
+
         if(currentWord.hasImage())
         {
             // Adding image to the list
@@ -50,6 +52,7 @@ public class WordAdapter extends ArrayAdapter<Word>
         {
             imageView.setVisibility(View.GONE);
         }
+
         TextView defaultTranslationView = (TextView) listItem.findViewById(R.id.default_text_view);
         defaultTranslationView.setText(currentWord.getDefaultTranslation());
 

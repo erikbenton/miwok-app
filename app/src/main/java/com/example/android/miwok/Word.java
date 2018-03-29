@@ -11,10 +11,20 @@ public class Word
     // Miwok translation
     private String mMiwokTranslation;
 
+    // Image resource ID
+    private int mImageResourceId;
+
     public Word(String defaultTranslation, String miwokTranslation)
     {
-        mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
+        this.mDefaultTranslation = defaultTranslation;
+        this.mMiwokTranslation = miwokTranslation;
+    }
+
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId)
+    {
+        this.mDefaultTranslation = defaultTranslation;
+        this.mMiwokTranslation = miwokTranslation;
+        this.mImageResourceId = imageResourceId;
     }
 
     /**
@@ -29,5 +39,12 @@ public class Word
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
+    }
+
+    /**
+     * Get image resource id of the word
+     */
+    public int getImageResourceId() {
+        return mImageResourceId;
     }
 }

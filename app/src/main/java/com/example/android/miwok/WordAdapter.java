@@ -40,10 +40,16 @@ public class WordAdapter extends ArrayAdapter<Word>
 
         Word currentWord = wordList.get(position);
 
-        // Adding image to the list
         ImageView imageView = (ImageView) listItem.findViewById(R.id.image);
-        imageView.setImageResource(currentWord.getImageResourceId());
-
+        if(currentWord.hasImage())
+        {
+            // Adding image to the list
+            imageView.setImageResource(currentWord.getImageResourceId());
+        }
+        else
+        {
+            imageView.setVisibility(View.GONE);
+        }
         TextView defaultTranslationView = (TextView) listItem.findViewById(R.id.default_text_view);
         defaultTranslationView.setText(currentWord.getDefaultTranslation());
 

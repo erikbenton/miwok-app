@@ -68,15 +68,15 @@ public class WordAdapter extends ArrayAdapter<Word>
         View textContainer = listItem.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(mContext, mColorResource);
         textContainer.setBackgroundColor(color);
-        textContainer.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                mp = MediaPlayer.create(mContext, currentWord.getSoundResourceId());
-                mp.start();
-            }
-        });
+//        textContainer.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                mp = MediaPlayer.create(mContext, currentWord.getSoundResourceId());
+//                mp.start();
+//            }
+//        });
 
 
         return listItem;

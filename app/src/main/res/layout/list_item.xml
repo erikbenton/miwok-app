@@ -11,11 +11,11 @@
         android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
+        android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
         android:paddingLeft="16dp"
         android:gravity="center"
-        android:background="#FD8E09"
         android:orientation="vertical">
 
         <TextView

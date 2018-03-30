@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ public class WordAdapter extends ArrayAdapter<Word>
     private Context mContext;
     private List<Word> wordList;
     private int mColorResource;
+    private MediaPlayer mp;
 
     public WordAdapter(@NonNull Activity context, ArrayList<Word> list, int colorResource)
     {
@@ -43,7 +45,7 @@ public class WordAdapter extends ArrayAdapter<Word>
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
         }
 
-        Word currentWord = wordList.get(position);
+        final Word currentWord = wordList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.image);
 
@@ -66,6 +68,15 @@ public class WordAdapter extends ArrayAdapter<Word>
         View textContainer = listItem.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(mContext, mColorResource);
         textContainer.setBackgroundColor(color);
+        textContainer.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mp = MediaPlayer.create(mContext, currentWord.getSoundResourceId());
+                mp.start();
+            }
+        });
 
 
         return listItem;

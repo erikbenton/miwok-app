@@ -16,6 +16,7 @@
         android:layout_height="@dimen/list_item_height"
         android:paddingLeft="16dp"
         android:gravity="center"
+        android:clickable="true"
         android:orientation="vertical">
 
         <TextView

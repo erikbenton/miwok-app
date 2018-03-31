@@ -6,9 +6,9 @@
     android:orientation="horizontal">
 
     <ImageView
-        style="@style/WordImage"
         android:id="@+id/image"
-        android:src="@mipmap/ic_launcher"/>
+        style="@style/WordImage"
+        android:src="@mipmap/ic_launcher" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,38 +18,37 @@
             android:id="@+id/text_container"
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_item_height"
-            android:paddingLeft="16dp"
-            android:gravity="center"
             android:layout_alignParentLeft="true"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
 
             <TextView
                 android:id="@+id/miwok_text_view"
-                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/default_text_view"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_play_arrow"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"/>
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_play_arrow" />
 
     </RelativeLayout>
-
 
 
 </LinearLayout>

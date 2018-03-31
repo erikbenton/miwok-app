@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
     private MediaPlayer mp;
+
+    private MediaPlayer.OnCompletionListener mpCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +49,32 @@ public class PhrasesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Word word = words.get(i);
-                mp = MediaPlayer.create(PhrasesActivity.this, word.getSoundResourceId());
-                mp.start();
+                releaseMediaPlayer();
+                initializeMediaPlayer(word);
             }
         });
+    }
 
+    /**
+     * Releases the MediaPlayer and sets it to null
+     */
+    private void releaseMediaPlayer()
+    {
+        if(mp != null)
+        {
+            mp.release();
+            mp = null;
+        }
+    }
+
+    /**
+     * Initializes the media player and sets up release of the media player on completion
+     * @param word
+     */
+    private void initializeMediaPlayer(Word word)
+    {
+        mp = MediaPlayer.create(PhrasesActivity.this, word.getSoundResourceId());
+        mp.start();
+        mp.setOnCompletionListener(mpCompletionListener);
     }
 }

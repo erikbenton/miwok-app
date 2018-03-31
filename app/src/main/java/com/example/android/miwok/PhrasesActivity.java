@@ -56,6 +56,15 @@ public class PhrasesActivity extends AppCompatActivity {
     }
 
     /**
+     * Releases the media player when the app is paused
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        releaseMediaPlayer();
+    }
+
+    /**
      * Releases the MediaPlayer and sets it to null
      */
     private void releaseMediaPlayer()
